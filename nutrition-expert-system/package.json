@@ -1,0 +1,13 @@
+{
+  "name": "nutrition-expert-system",
+  "version": "1.0.0",
+  "description": "Експертна система раціонального харчування для спортсменів",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": ["nutrition", "sports", "health", "ukraine"],
+  "author": "",
+  "license": "MIT"
+}
