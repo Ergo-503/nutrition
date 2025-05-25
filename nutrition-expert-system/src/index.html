@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Експертна система раціонального харчування для спортсменів</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏃‍♂️ Експертна система раціонального харчування</h1>
+            <p>Персоналізовані рекомендації для спортсменів</p>
+        </div>
+
+        <div class="main-content">
+            <div class="input-section">
+                <h2 class="section-title">Параметри користувача</h2>
+                <div class="form-group">
+                    <h3>Особисті дані</h3>
+                    <div class="input-field">
+                        <label for="gender">Стать:</label>
+                        <select id="gender">
+                            <option value="Чоловіча">Чоловіча</option>
+                            <option value="Жіноча">Жіноча</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="age">Вік (років):</label>
+                        <input type="number" id="age" min="16" max="80" value="25">
+                    </div>
+                    <div class="input-field">
+                        <label for="weight">Вага (кг):</label>
+                        <input type="number" id="weight" min="40" max="200" step="0.1" value="70">
+                    </div>
+                    <div class="input-field">
+                        <label for="height">Зріст (см):</label>
+                        <input type="number" id="height" min="140" max="220" value="175">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h3>Спортивна діяльність</h3>
+                    <div class="input-field">
+                        <label for="activity">Рівень активності:</label>
+                        <select id="activity">
+                            <option value="Дуже низька">Дуже низька</option>
+                            <option value="Низька">Низька</option>
+                            <option value="Середня" selected>Середня</option>
+                            <option value="Висока">Висока</option>
+                            <option value="Дуже висока">Дуже висока</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="goal">Мета:</label>
+                        <select id="goal">
+                            <option value="Підтримання форми" selected>Підтримання форми</option>
+                            <option value="Набір маси">Набір маси</option>
+                            <option value="Скидання ваги/Сушка">Скидання ваги/Сушка</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h3>Дієтичні обмеження</h3>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="vegan">
+                            <label for="vegan">Веганська дієта</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="diabetes">
+                            <label for="diabetes">Діабет (низький ГІ)</label>
+                        </div>
+                    </div>
+                </div>
+                <button id="calculateBtn" class="button button-primary">🔍 Розрахувати раціон</button>
+                <button id="clearBtn" class="button button-danger">🗑️ Очистити дані</button>
+            </div>
+            <div class="results-section">
+                <h2 class="section-title">Результати розрахунку</h2>
+                <div id="resultsContainer" style="display: none;">
+                    <div class="result-card">
+                        <h3>Розраховані потреби</h3>
+                        <div id="nutritionalNeeds" class="needs-display"></div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Оптимальний раціон</h3>
+                        <div id="productsList" class="products-list"></div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Пояснення рекомендацій</h3>
+                        <div id="explanation" class="explanation"></div>
+                    </div>
+                    <div class="charts-container">
+                        <div class="chart-card">
+                            <div class="chart-title">Розподіл макронутрієнтів</div>
+                            <canvas id="macroChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">Прогноз зміни ваги</div>
+                            <canvas id="weightChart"></canvas>
+                        </div>
+                    </div>
+                    <button id="saveBtn" class="button button-success">💾 Зберегти результати</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
